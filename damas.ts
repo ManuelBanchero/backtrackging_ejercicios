@@ -1,6 +1,6 @@
 function damaOk(s: number[], e: number): boolean {
     for (let i = 0; i < e; i++)
-        if (s[i] === s[e] || Math.abs(s[i] - s[e]) === Math.abs(i - 3))
+        if (s[i] === s[e] || Math.abs(s[i] - s[e]) === Math.abs(i - e))
             return false
 
     return true
