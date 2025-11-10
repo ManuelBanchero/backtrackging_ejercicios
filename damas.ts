@@ -6,24 +6,28 @@ function damaOk(s: number[], e: number): boolean {
     return true
 }
 
-function dama(s: number[], e: number = 0): boolean {
-    let ok: boolean = false
-    s[e] = 0
+function dama(
+    n: number,
+    tablero: number[] = new Array(n).fill(0),
+    e: number = 0
+): boolean {
+    let ok = false
+    tablero[e] = 0
 
-    while (s[e] < s.length && !ok) {
-        if (damaOk(s, e)) {
-            if (e === s.length - 1) {
+    while (tablero[e] < n && !ok) {
+        if (damaOk(tablero, e)) {
+            if (e === n - 1) {
                 ok = true
-                console.log(s)
+                console.log(tablero)
             } else {
-                ok = dama(s, e + 1)
+                ok = dama(n, tablero, e + 1)
             }
         }
 
-        s[e] = s[e] + 1
+        tablero[e] = tablero[e] + 1
     }
 
     return ok
 }
 
-dama([0, 0, 0, 0])
+dama(4)
